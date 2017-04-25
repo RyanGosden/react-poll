@@ -14,32 +14,29 @@ import 'whatwg-fetch';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import FastClick from 'fastclick';
-import { Provider } from 'react-redux';
 
-import store from './store';
-import router from './router';
-import history from './history';
+import App from './components/App';
 
-let routes = require('./routes.json').default; // Loaded with utils/routes-loader.js
+import { AppContainer } from 'react-hot-loader';
+
+
+
 
 const container = document.getElementById('container');
 
-function renderComponent(component) {
-  ReactDOM.render(<Provider store={store}>{component}</Provider>, container);
-}
+const render = (Component) => {
+  ReactDOM.render(
+    <AppContainer>
+      <Component/>
+    </AppContainer>,
+    document.getElementById('container')
+  );
+};
 
-// Find and render a web page matching the current URL path,
-// if such page is not found then render an error page (see routes.json, core/router.js)
-function render(location) {
-  router.resolve(routes, location)
-    .then(renderComponent)
-    .catch(error => router.resolve(routes, { ...location, error }).then(renderComponent));
-}
+render(App);
 
-// Handle client-side navigation by using HTML5 History API
-// For more information visit https://github.com/ReactJSTraining/history/tree/master/docs#readme
-history.listen(render);
-render(history.location);
+
+
 
 // Eliminates the 300ms delay between a physical tap
 // and the firing of a click event on mobile browsers
@@ -47,9 +44,9 @@ render(history.location);
 FastClick.attach(document.body);
 
 // Enable Hot Module Replacement (HMR)
+// Hot Module Replacement API
 if (module.hot) {
-  module.hot.accept('./routes.json', () => {
-    routes = require('./routes.json').default; // eslint-disable-line global-require
-    render(history.location);
+  module.hot.accept('./components/App', () => {
+    render(App)
   });
 }
