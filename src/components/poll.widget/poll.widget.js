@@ -15,38 +15,47 @@ class PollWidget extends Component{
   constructor(props){
     super(props);
 
-  //  const cookie = new Cookies();
+    this.cookie = new Cookies();
 
     this.state = {
-      alreadyVoted: "",
-      cookie: new Cookies()
+      alreadyVoted: ""
     };
 
-    if (this.state.cookie.get('poll-status')){
-      this.setState({alreadyVoted : true});
-    };
+//    this.getVoteStatus();
+
+    console.log(this.cookie.get('poll-status'));
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handlePollView = this.handlePollView.bind(this);
+    this.getVoteStatus = this.getVoteStatus.bind(this);
+
 
   }
 
   handleSubmit(value){
-    alert("Submitting form...");
-    this.state.cookie.set('poll-status', 'true', { path: '/' });
-    this.setState({alreadyVoted: 'true'});
+    alert("`Submitting form...");
+    this.cookie.set('poll-status', 'true', { path: '/' });
+    this.setState({alreadyVoted: true});
+  }
 
+  getVoteStatus(){
+    if (this.cookie.get('poll-status')){
+      this.setState({alreadyVoted : true});
+    } else{
+      this.setState({alreadyVoted : false});
+    }
+  }
 
+  handlePollView(){
+    // this.getVoteStatus();
+    return (this.state.alreadyVoted === true) ?
+        <PollResults /> :
+        <PollQuestion handleSubmit={this.handleSubmit} />;
   }
 
   render(){
 
 
-  //  this.setState.alreadyVoted = cookie.get('poll-status') || 'false',
-
-    var pollView;
-    this.state.alreadyVoted === 'true' ?
-    pollView = <PollResults /> :
-    pollView = <PollQuestion handleSubmit={this.handleSubmit} />;
 
     return(
     <div className={p.pollWidget}>
@@ -54,7 +63,7 @@ class PollWidget extends Component{
         <h1 className={p.pollTitle}>Poll Widget</h1>
       </div>
       <div className={p.pollBody}>
-          {pollView}
+          {this.handlePollView()}
       </div>
       <PollFooterButtons/>
     </div>
