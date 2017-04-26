@@ -15,10 +15,15 @@ class PollWidget extends Component{
   constructor(props){
     super(props);
 
-    const cookie = new Cookies();
+  //  const cookie = new Cookies();
 
     this.state = {
-      alreadyVoted: cookie.get('poll-completed') || 'poll-not-completed',
+      alreadyVoted: "",
+      cookie: new Cookies()
+    };
+
+    if (this.state.cookie.get('poll-status')){
+      this.setState({alreadyVoted : true});
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -26,15 +31,20 @@ class PollWidget extends Component{
   }
 
   handleSubmit(value){
+    alert("Submitting form...");
+    this.state.cookie.set('poll-status', 'true', { path: '/' });
+    this.setState({alreadyVoted: 'true'});
+
+
   }
 
   render(){
-    // When submitting form
-    //    cookie.set('poll-completed', 'Pacman', { path: '/' });
 
+
+  //  this.setState.alreadyVoted = cookie.get('poll-status') || 'false',
 
     var pollView;
-    this.state.alreadyVoted === true ?
+    this.state.alreadyVoted === 'true' ?
     pollView = <PollResults /> :
     pollView = <PollQuestion handleSubmit={this.handleSubmit} />;
 
