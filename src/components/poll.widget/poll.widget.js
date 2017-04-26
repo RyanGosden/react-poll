@@ -1,6 +1,3 @@
-//Check cookie
-//If non-existant
-
 import React, { Component} from 'react';
 import Cookies from 'universal-cookie';
 
@@ -10,7 +7,6 @@ import PollFooterButtons from './poll.footer-buttons';
 
 import p from './styles.css';
 
-
 class PollWidget extends Component{
   constructor(props){
     super(props);
@@ -18,18 +14,12 @@ class PollWidget extends Component{
     this.cookie = new Cookies();
 
     this.state = {
-      alreadyVoted: ""
+      alreadyVoted: this.cookie.get('poll-status') || false
     };
-
-//    this.getVoteStatus();
-
-    console.log(this.cookie.get('poll-status'));
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handlePollView = this.handlePollView.bind(this);
     this.getVoteStatus = this.getVoteStatus.bind(this);
-
-
   }
 
   handleSubmit(value){
@@ -38,25 +28,13 @@ class PollWidget extends Component{
     this.setState({alreadyVoted: true});
   }
 
-  getVoteStatus(){
-    if (this.cookie.get('poll-status')){
-      this.setState({alreadyVoted : true});
-    } else{
-      this.setState({alreadyVoted : false});
-    }
-  }
-
   handlePollView(){
-    // this.getVoteStatus();
-    return (this.state.alreadyVoted === true) ?
+    return (this.state.alreadyVoted) ?
         <PollResults /> :
         <PollQuestion handleSubmit={this.handleSubmit} />;
   }
 
   render(){
-
-
-
     return(
     <div className={p.pollWidget}>
       <div className={p.pollHeader}>
