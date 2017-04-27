@@ -19,7 +19,6 @@ class PollWidget extends Component{
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handlePollView = this.handlePollView.bind(this);
-    this.getVoteStatus = this.getVoteStatus.bind(this);
   }
 
   handleSubmit(value){
