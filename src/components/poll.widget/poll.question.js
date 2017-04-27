@@ -1,4 +1,6 @@
 import React from 'react';
+import PollFooterButtons from './poll.footer-buttons';
+
 import p from './styles.css';
 
 
@@ -25,22 +27,29 @@ class PollQuestion extends React.Component{
     this.setState({pollChoice: e.target.value});
   }
 
+  handleButtonClick(){
+    alert("button has been clicked!");
+  }
+
   render(){
     return(
-        <form>
-          <p className={p.pollQuestion}> What do you think of Malta's Tourism? </p>
-          <label>
-            <input type="radio" value="option-1" name="poll-buttons"
-              onChange={this.handleRadioChange}/>
-            It needs serious touch-ups!
-          </label>
-          <label>
-            <input type="radio" value="option-2" name="poll-buttons"
-              onChange={this.handleRadioChange}/>
-            Its fine!
-          </label>
-          <button onClick={this.handleSubmit} className={p.pollButton}>Vote</button>
-        </form>
+        <div>
+          <form>
+            <p className={p.pollQuestion}> What do you think of Maltas Tourism? </p>
+            <label>
+              <input type="radio" value="option-1" name="poll-buttons"
+                onChange={this.handleRadioChange}/>
+              It needs serious touch-ups!
+            </label>
+            <label>
+              <input type="radio" value="option-2" name="poll-buttons"
+                onChange={this.handleRadioChange}/>
+              Its fine!
+            </label>
+            <button onClick={this.handleSubmit} className={p.pollButton}>Vote</button>
+          </form>
+          <PollFooterButtons label="View Results" handleButtonClick={this.handleButtonClick}/>
+        </div>
   );
   }
 }

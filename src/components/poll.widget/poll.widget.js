@@ -3,7 +3,6 @@ import Cookies from 'universal-cookie';
 
 import PollQuestion from './poll.question';
 import PollResults from './poll.results';
-import PollFooterButtons from './poll.footer-buttons';
 
 import p from './styles.css';
 
@@ -42,7 +41,6 @@ class PollWidget extends Component{
       <div className={p.pollBody}>
           {this.handlePollView()}
       </div>
-      <PollFooterButtons/>
     </div>
   );
   }
