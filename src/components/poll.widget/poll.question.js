@@ -29,6 +29,7 @@ class PollQuestion extends React.Component{
 
   handleButtonClick(){
     alert("button has been clicked!");
+    this.setState({pollViewRender : 'results'});
   }
 
   render(){

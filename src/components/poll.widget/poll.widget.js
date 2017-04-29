@@ -13,8 +13,11 @@ class PollWidget extends Component{
     this.cookie = new Cookies();
 
     this.state = {
-      alreadyVoted: this.cookie.get('poll-status') || false
+      alreadyVoted: this.cookie.get('poll-status') || false,
+      pollViewRender: 'question'
     };
+
+    this.pollViewRender = 'question';
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handlePollView = this.handlePollView.bind(this);
@@ -27,10 +30,27 @@ class PollWidget extends Component{
   }
 
   handlePollView(){
-    return (this.state.alreadyVoted) ?
-        <PollResults /> :
-        <PollQuestion handleSubmit={this.handleSubmit} />;
-  }
+    // create a poll view state/varibale switch
+    // check its value and render the view
+    // force result view if already voted
+    if(this.state.alreadyVoted){
+      this.setState({pollViewRender : 'results'});
+      return ( <PollResults voteStatus={this.state.alreadyVoted}/> )
+    } else {
+        if (this.pollViewRender === "question"){
+        return (<PollQuestion handleSubmit={this.handleSubmit} pollViewRender={this.state.pollViewRender} /> )
+      }else{
+        return (<PollResults voteStatus={this.state.alreadyVoted} /> )
+      }
+    }
+
+}
+  //   if (this.state.pollViewRender === "")
+  //
+  //   return (this.state.alreadyVoted) ?
+  //       <PollResults voteStatus={this.state.alreadyVoted}/> :
+  //       <PollQuestion handleSubmit={this.handleSubmit} />;
+  // }
 
   render(){
     return(
