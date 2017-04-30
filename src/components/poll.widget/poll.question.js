@@ -13,8 +13,9 @@ class PollQuestion extends React.Component{
       checked: false
     }
 
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSubmit      = this.handleSubmit.bind(this);
     this.handleRadioChange = this.handleRadioChange.bind(this);
+    this.handleButtonClick = this.handleButtonClick.bind(this);
   };
 
 
@@ -27,9 +28,8 @@ class PollQuestion extends React.Component{
     this.setState({pollChoice: e.target.value});
   }
 
-  handleButtonClick(){
-    alert("button has been clicked!");
-    this.setState({pollViewRender : 'results'});
+  handleButtonClick(props){
+    this.props.toggleViewState();
   }
 
   render(){

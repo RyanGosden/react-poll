@@ -5,9 +5,14 @@ import PollFooterButtons from './poll.footer-buttons';
 
 function PollResults(props) {
 
+  function handleButtonClick(){
+    props.toggleViewState();
+  }
+
   function renderBackButton(){
     if (!props.voteStatus){
-        return <PollFooterButtons label="View Question"/>
+        return <PollFooterButtons label="View Question" handleButtonClick={handleButtonClick}/>
+
       }
     }
 
