@@ -1,5 +1,6 @@
 import React, { Component} from 'react';
 import Cookies from 'universal-cookie';
+import axios from 'axios';
 
 import PollQuestion from './poll.question';
 import PollResults from './poll.results';
@@ -21,14 +22,17 @@ class PollWidget extends Component{
     this.handlePollView = this.handlePollView.bind(this);
     this.toggleViewState = this.toggleViewState.bind(this);
 
-
-
-
     //set view based on cookie
-    //to check or move directly to state
-   if(this.state.alreadyVoted){
-     this.state.pollViewRender = true;
-   }
+    if(this.state.alreadyVoted){
+      this.state.pollViewRender = true;
+    }
+
+    //load data
+    axios
+  .get('/poll-data.json')
+  .then(function(result) {
+console.log(result)  });
+
   }
 
   handleSubmit(value){

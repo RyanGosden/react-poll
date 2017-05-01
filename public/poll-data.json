@@ -1,0 +1,9 @@
+{
+  "question": "Question goes here...",
+  "answers": ["answer1", "answer2", "answer3"],
+  "results" : [
+      {"answer1" : 10},
+      {"answer2" : 80},
+      {"answer3" : 10}
+    ]
+}
