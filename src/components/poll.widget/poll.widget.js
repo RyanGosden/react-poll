@@ -29,11 +29,10 @@ class PollWidget extends Component{
 
     //load data
     axios
-  .get('/poll-data.json')
-  .then(function(result) {
-console.log(result)  });
-
-  }
+      .get('/poll-data.json')
+      .then(function(result) {
+          console.log(result)  });
+        }
 
   handleSubmit(value){
     alert("`Submitting form...");

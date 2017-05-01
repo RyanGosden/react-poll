@@ -1,6 +1,5 @@
 import React from 'react';
-import PollFooterButtons from './poll.footer-buttons';
-
+import GenericButton from '../generic/generic.button';
 // here check state of vote and decide to show button
 
 function PollResults(props) {
@@ -11,7 +10,7 @@ function PollResults(props) {
 
   function renderBackButton(){
     if (!props.voteStatus){
-        return <PollFooterButtons label="View Question" handleButtonClick={handleButtonClick}/>
+        return <GenericButton label="View Question" handleButtonClick={handleButtonClick}/>
 
       }
     }

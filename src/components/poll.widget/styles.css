@@ -44,3 +44,7 @@ label{
   clear:both;
   padding-left:10px;
 }
+
+.genericButton {
+  float:right;
+}

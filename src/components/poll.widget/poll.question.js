@@ -1,8 +1,7 @@
 import React from 'react';
-import PollFooterButtons from './poll.footer-buttons';
+import GenericButton from '../generic/generic.button';
 
 import p from './styles.css';
-
 
 class PollQuestion extends React.Component{
   constructor(props){
@@ -49,7 +48,7 @@ class PollQuestion extends React.Component{
             </label>
             <button onClick={this.handleSubmit} className={p.pollButton}>Vote</button>
           </form>
-          <PollFooterButtons label="View Results" handleButtonClick={this.handleButtonClick}/>
+          <GenericButton label="View Results" handleButtonClick={this.handleButtonClick}/>
         </div>
   );
   }
