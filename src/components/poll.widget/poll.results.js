@@ -1,6 +1,9 @@
 import React from 'react';
-import GenericButton from '../generic/generic.button';
-// here check state of vote and decide to show button
+import {PieChart} from 'react-easy-chart';
+
+import GenericButton from '../generic/button/generic.button';
+import styles from './poll.css';
+
 
 function PollResults(props) {
 
@@ -17,8 +20,15 @@ function PollResults(props) {
 
   return (
     <div>
-      <h1>Results</h1>
-        {renderBackButton()}
+      <PieChart
+        size={100}
+        data={[
+          { key: 'A', value: 100 },
+          { key: 'B', value: 200 },
+          { key: 'C', value: 50 }
+        ]}
+        />
+      {renderBackButton()}
     </div>
   )
 }

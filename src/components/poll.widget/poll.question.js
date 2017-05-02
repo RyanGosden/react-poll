@@ -1,7 +1,7 @@
 import React from 'react';
-import GenericButton from '../generic/generic.button';
+import GenericButton from '../generic/button/generic.button';
 
-import p from './styles.css';
+import styles from './poll.css';
 
 class PollQuestion extends React.Component{
   constructor(props){
@@ -35,7 +35,7 @@ class PollQuestion extends React.Component{
     return(
         <div>
           <form>
-            <p className={p.pollQuestion}> What do you think of Maltas Tourism? </p>
+            <p className={styles.pollQuestion}> What do you think of Maltas Tourism? </p>
             <label>
               <input type="radio" value="option-1" name="poll-buttons"
                 onChange={this.handleRadioChange}/>
@@ -46,7 +46,7 @@ class PollQuestion extends React.Component{
                 onChange={this.handleRadioChange}/>
               Its fine!
             </label>
-            <button onClick={this.handleSubmit} className={p.pollButton}>Vote</button>
+            <button onClick={this.handleSubmit} className={styles.pollButton}>Vote</button>
           </form>
           <GenericButton label="View Results" handleButtonClick={this.handleButtonClick}/>
         </div>

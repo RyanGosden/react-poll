@@ -2,10 +2,11 @@ import React, { Component} from 'react';
 import Cookies from 'universal-cookie';
 import axios from 'axios';
 
+import GenericWidget from '../../components/generic/widget/generic.widget';
 import PollQuestion from './poll.question';
 import PollResults from './poll.results';
 
-import p from './styles.css';
+import styles from './poll.css';
 
 class PollWidget extends Component{
   constructor(props){
@@ -39,34 +40,24 @@ class PollWidget extends Component{
     this.cookie.set('poll-status', 'true', { path: '/' });
     this.setState({alreadyVoted: true});
     this.setState({pollViewRender: true});
-
   }
 
   toggleViewState(){
-    var currentState = this.state.pollViewRender;
-    this.setState({pollViewRender : !currentState})
+    this.setState({
+      pollViewRender : !this.state.pollViewRender
+    })
   }
 
   handlePollView(){
-    if (!this.state.pollViewRender){
-        return (<PollQuestion handleSubmit={this.handleSubmit} toggleViewState={this.toggleViewState} /> )
-    }else{
+    if (this.state.pollViewRender){
         return (<PollResults voteStatus={this.state.alreadyVoted} toggleViewState={this.toggleViewState} /> )
+    }else{
+        return (<PollQuestion handleSubmit={this.handleSubmit} toggleViewState={this.toggleViewState} /> )
     }
   }
 
-
   render(){
-    return(
-    <div className={p.pollWidget}>
-      <div className={p.pollHeader}>
-        <h1 className={p.pollTitle}>Poll Widget</h1>
-      </div>
-      <div className={p.pollBody}>
-          {this.handlePollView()}
-      </div>
-    </div>
-  );
+    return <GenericWidget widgetTitle={"Poll Widget"} widgetView={this.handlePollView}/>;
   }
 }
 

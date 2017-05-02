@@ -17,7 +17,7 @@ function GenericButton(props) {
   };
 
   return (
-    <button className={style.otherGenericButton} onClick={handleClick}>{props.label}</button>
+    <button className={style.genericButton} onClick={handleClick}>{props.label}</button>
   )
 }
 

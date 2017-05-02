@@ -2,28 +2,6 @@
   --color: #607d8b;
 }
 
-.pollWidget{
-  width:300px;
-  height:251px;
-  background-color:lightblue;
-  margin: 20px;
-}
-
-.pollHeader{
-color:#fff;
-background-color: #000;
-}
-
-.pollTitle{
-  font-size:15px;
-  padding:5px;
-  text-align: center;
-}
-
-.pollBody{
-
-}
-
 .pollQuestion{
   text-align: center;
   padding:5px;
@@ -43,8 +21,4 @@ label{
   display:block;
   clear:both;
   padding-left:10px;
-}
-
-.genericButton {
-  float:right;
 }
