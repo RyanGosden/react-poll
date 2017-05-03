@@ -6,14 +6,8 @@
     display:block;
     padding:5px;
     margin: 10px auto;
-    width:200px;
+    width:100px;
     background-color: #000;
     color:#fff;
     border: 0;
-  }
-
-  .otherGenericButton{
-    composes: genericButton;
-    color:red;
-    font-style: italic;
   }

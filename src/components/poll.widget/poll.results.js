@@ -13,7 +13,7 @@ function PollResults(props) {
 
   function renderBackButton(){
     if (!props.voteStatus){
-        return <GenericButton label="View Question" handleButtonClick={handleButtonClick}/>
+        return <GenericButton label="View Question" className={styles.pollGenericButton} handleButtonClick={handleButtonClick}/>
 
       }
     }
@@ -21,7 +21,7 @@ function PollResults(props) {
   return (
     <div>
       <PieChart
-        size={100}
+        size={150}
         data={[
           { key: 'A', value: 100 },
           { key: 'B', value: 200 },

@@ -22,3 +22,12 @@ label{
   clear:both;
   padding-left:10px;
 }
+
+.pollGenericButton{
+  composes: genericButton from '../generic/button/generic.button.css';
+  position: absolute;
+  bottom:0;
+  right:0;
+  margin: 5px;
+  font-style: italic;
+}

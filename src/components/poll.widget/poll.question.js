@@ -37,7 +37,7 @@ class PollQuestion extends React.Component{
           <form>
             <p className={styles.pollQuestion}> What do you think of Maltas Tourism? </p>
             <label>
-              <input type="radio" value="option-1" name="poll-buttons"
+              <input type="radio" value="option-1" name="poll-buttons" defaultChecked
                 onChange={this.handleRadioChange}/>
               It needs serious touch-ups!
             </label>
@@ -48,7 +48,7 @@ class PollQuestion extends React.Component{
             </label>
             <button onClick={this.handleSubmit} className={styles.pollButton}>Vote</button>
           </form>
-          <GenericButton label="View Results" handleButtonClick={this.handleButtonClick}/>
+          <GenericButton label="View Results" className={styles.pollGenericButton} handleButtonClick={this.handleButtonClick}/>
         </div>
   );
   }
