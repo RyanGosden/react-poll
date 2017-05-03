@@ -23,6 +23,11 @@ label{
   padding-left:10px;
 }
 
+.pollPiechart {
+  width:150px;
+  margin: 0 auto;
+}
+
 .pollGenericButton{
   composes: genericButton from '../generic/button/generic.button.css';
   position: absolute;

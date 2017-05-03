@@ -20,14 +20,16 @@ function PollResults(props) {
 
   return (
     <div>
-      <PieChart
-        size={150}
-        data={[
-          { key: 'A', value: 100 },
-          { key: 'B', value: 200 },
-          { key: 'C', value: 50 }
-        ]}
-        />
+      <div className={styles.pollPiechart}>
+        <PieChart
+          size={150}
+          data={[
+            { key: 'A', value: 100 },
+            { key: 'B', value: 200 },
+            { key: 'C', value: 50 }
+          ]}
+          />
+      </div>
       {renderBackButton()}
     </div>
   )
