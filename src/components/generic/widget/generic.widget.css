@@ -5,9 +5,9 @@
 .pollWidget{
   width:300px;
   height:251px;
-  background-color:lightblue;
   margin: 20px;
   position: relative;
+  background-color:lightblue;
 }
 
 .pollHeader{
@@ -19,4 +19,11 @@ background-color: #000;
   font-size:15px;
   padding:5px;
   text-align: center;
+  margin: 0 auto;
+}
+
+.pollBody{
+  overflow-y:auto;
+  height: 185px;
+  background-color:lightblue;
 }

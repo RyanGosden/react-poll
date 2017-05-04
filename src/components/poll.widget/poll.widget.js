@@ -21,17 +21,16 @@ class PollWidget extends Component{
       pollAnswers: []
     };
 
+    //bound functions
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handlePollView = this.handlePollView.bind(this);
     this.toggleViewState = this.toggleViewState.bind(this);
-
 
     //set view based on cookie
     if(this.state.alreadyVoted){
       this.state.pollViewRender = true;
     }
   }
-
 
   componentDidMount(){
     //load data
@@ -42,9 +41,6 @@ class PollWidget extends Component{
         this.setState({pollAnswers : result.data.answers});
        });
   }
-
-
-
 
   handleSubmit(value){
     alert("`Submitting form...");
@@ -61,14 +57,26 @@ class PollWidget extends Component{
 
   handlePollView(){
     if (this.state.pollViewRender){
-        return (<PollResults voteStatus={this.state.alreadyVoted} toggleViewState={this.toggleViewState} /> )
+        return (<PollResults
+                  pollQuestion={this.state.pollQuestion}
+                  voteStatus={this.state.alreadyVoted}
+                  toggleViewState={this.toggleViewState}
+                /> )
     }else{
-        return (<PollQuestion pollQuestion={this.state.pollQuestion} pollAnswers={this.state.pollAnswers} handleSubmit={this.handleSubmit} toggleViewState={this.toggleViewState} /> )
+        return (<PollQuestion
+                  pollQuestion={this.state.pollQuestion}
+                  pollAnswers={this.state.pollAnswers}
+                  handleSubmit={this.handleSubmit}
+                  toggleViewState={this.toggleViewState}
+                /> )
     }
   }
 
   render(){
-    return <GenericWidget widgetTitle={"Poll Widget"} widgetView={this.handlePollView}/>;
+    return <GenericWidget
+              widgetTitle={"Poll Widget"}
+              widgetView={this.handlePollView}
+              />;
   }
 }
 

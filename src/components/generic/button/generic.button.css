@@ -11,3 +11,8 @@
     color:#fff;
     border: 0;
   }
+
+.genericButton:hover{
+  cursor: pointer;
+  color:lightgrey;
+}

@@ -20,6 +20,7 @@ function PollResults(props) {
 
   return (
     <div>
+    <p className={styles.pollQuestion}> {props.pollQuestion}</p>
       <div className={styles.pollPiechart}>
         <PieChart
           size={150}
