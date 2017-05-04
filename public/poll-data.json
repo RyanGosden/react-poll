@@ -1,6 +1,6 @@
 {
-  "question": "Question goes here...",
-  "answers": ["answer1", "answer2", "answer3"],
+  "question": "What is the state of our economy?",
+  "answers": ["Needs improving", "Rock bottom", "Where is the next bank to rob"],
   "results" : [
       {"answer1" : 10},
       {"answer2" : 80},
