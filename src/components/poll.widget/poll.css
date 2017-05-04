@@ -5,6 +5,7 @@
 .pollQuestion{
   text-align: center;
   padding:5px;
+  margin: 0 auto;
 }
 
 .pollButton {
@@ -27,6 +28,7 @@ label{
   width:150px;
   margin: 0 auto;
 }
+
 
 .pollGenericButton{
   composes: genericButton from '../generic/button/generic.button.css';

@@ -1,9 +1,8 @@
 {
   "question": "What is the state of our economy?",
-  "answers": ["Needs improving", "Rock bottom", "Where is the next bank to rob"],
-  "results" : [
-      {"answer1" : 10},
-      {"answer2" : 80},
-      {"answer3" : 10}
-    ]
+  "answers": [
+    {"key": "A" ,"answer" : "Needs improving", "result" : 20},
+    {"key": "B" ,"answer" : "Easy money", "result" : 45},
+    {"key": "C", "answer" : "Where is the next bank to rob", "result" : 35}
+]
 }

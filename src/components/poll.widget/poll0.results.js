@@ -2,8 +2,6 @@ import React from 'react';
 import {PieChart} from 'react-easy-chart';
 
 import GenericButton from '../generic/button/generic.button';
-import PollResultsInformation from './poll.results.information';
-
 import styles from './poll.css';
 
 
@@ -49,9 +47,8 @@ function PollResults(props) {
           }}
           />
 
-      </div>
-      <PollResultsInformation pollAnswers={props.pollAnswers} />
 
+      </div>
       {renderBackButton()}
     </div>
   )

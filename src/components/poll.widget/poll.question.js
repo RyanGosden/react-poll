@@ -32,25 +32,20 @@ class PollQuestion extends React.Component{
   }
 
 renderQuestions(){
-
   const answers = this.props.pollAnswers;
 
   if(answers === undefined){
     return <div> Return </div>
-  }
-    var list = answers.map((answer)=> {
-      return (
-        //<div>{answer}</div>
-         <label><input type="radio" value="option-1" name="poll-buttons" onChange={this.handleRadioChange}/>{answer}</label>
-      )
-    })
+  } else{
+      var list = answers.map((answer)=> {
+        return ( <label>
+                    <input type="radio" value="option-1" name="poll-buttons"
+                    onChange={this.handleRadioChange}/>{answer.answer}
+                 </label>)
+     })
   return list;
-
   }
-
-
-
-
+}
 
   render(){
     return(

@@ -59,6 +59,7 @@ class PollWidget extends Component{
     if (this.state.pollViewRender){
         return (<PollResults
                   pollQuestion={this.state.pollQuestion}
+                  pollAnswers={this.state.pollAnswers}
                   voteStatus={this.state.alreadyVoted}
                   toggleViewState={this.toggleViewState}
                 /> )
