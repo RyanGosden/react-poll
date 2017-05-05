@@ -1,5 +1,4 @@
 import React from 'react';
-
 import style from './generic.widget.css';
 
 function GenericWidget(props) {

@@ -15,7 +15,11 @@ function PollResults(props) {
 
   function renderBackButton(){
     if (!props.voteStatus){
-        return <GenericButton label="View Choices" className={styles.pollGenericButton} handleButtonClick={handleButtonClick}/>
+        return <GenericButton
+                  label="View Choices"
+                  className={styles.pollGenericButton}
+                  handleButtonClick={handleButtonClick}
+                />
       }
     }
 

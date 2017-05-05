@@ -1,5 +1,6 @@
 import React from 'react';
 import GenericButton from '../generic/button/generic.button';
+import GenericMessage from '../generic/message/generic.message';
 
 import styles from './poll.css';
 
@@ -8,7 +9,10 @@ class PollQuestion extends React.Component{
     super(props);
 
     this.state = {
-      pollChoice : ""
+      pollChoice : "",
+      message : {
+        pollQuestion : false
+      }
     }
 
     this.handleSubmit      = this.handleSubmit.bind(this);
@@ -19,9 +23,10 @@ class PollQuestion extends React.Component{
 
   handleSubmit(e){
     e.preventDefault();
-    console.log(e.target.value);
     if (this.state.pollChoice === ""){
-      alert("Kindly make a selection.");
+      var messageObj = this.state.message;
+      messageObj.pollQuestion = true;
+      this.setState({message : messageObj})
     }else{
       this.props.handleSubmit(this.state.pollChoice);
     }
@@ -56,9 +61,10 @@ renderQuestions(){
         <div>
           <form>
             <p className={styles.pollQuestion}> {this.props.pollQuestion}</p>
-{this.renderQuestions()}
+            {this.renderQuestions()}
             <button onClick={this.handleSubmit} className={styles.pollButton}>Vote</button>
           </form>
+          <GenericMessage messageType={"error"} message={"Error - please select a field"} messageSwitch={this.state.message.pollQuestion} />
           <GenericButton label="View Results" className={styles.pollGenericButton} handleButtonClick={this.handleButtonClick}/>
         </div>
   );

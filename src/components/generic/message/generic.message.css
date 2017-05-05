@@ -1,0 +1,15 @@
+:root {
+  --color: #607d8b;
+}
+
+.genericMessage{
+  text-align: center;
+  color:red;
+  margin: 5px;
+  display: none;
+}
+
+.show{
+  composes: genericMessage;
+  display:block;
+}
