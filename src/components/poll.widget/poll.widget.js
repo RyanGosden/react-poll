@@ -43,7 +43,7 @@ class PollWidget extends Component{
   }
 
   handleSubmit(value){
-    alert("`Submitting form...");
+    alert("`Submitting form ...");
     this.cookie.set('poll-status', 'true', { path: '/' });
     this.setState({alreadyVoted: true});
     this.setState({pollViewRender: true});

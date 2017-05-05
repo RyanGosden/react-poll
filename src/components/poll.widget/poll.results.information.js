@@ -6,7 +6,7 @@ function PollResultsInformation(props) {
     var pieData = [];
     var pollAnswers = props.pollAnswers;
       var  x = pollAnswers.map((pollAnswer)=>{
-         return <li>({pollAnswer.key}){pollAnswer.result}% - {pollAnswer.answer} </li>
+         return <li key={pollAnswer.key}>({pollAnswer.key}){pollAnswer.result}% - {pollAnswer.answer} </li>
 
     });
     return x;

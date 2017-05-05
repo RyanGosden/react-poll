@@ -8,8 +8,7 @@ class PollQuestion extends React.Component{
     super(props);
 
     this.state = {
-      pollChoice : "",
-      checked: false
+      pollChoice : ""
     }
 
     this.handleSubmit      = this.handleSubmit.bind(this);
@@ -20,7 +19,12 @@ class PollQuestion extends React.Component{
 
   handleSubmit(e){
     e.preventDefault();
-    this.props.handleSubmit(e.target.value);
+    console.log(e.target.value);
+    if (this.state.pollChoice === ""){
+      alert("Kindly make a selection.");
+    }else{
+      this.props.handleSubmit(this.state.pollChoice);
+    }
   };
 
   handleRadioChange(e){
@@ -35,11 +39,11 @@ renderQuestions(){
   const answers = this.props.pollAnswers;
 
   if(answers === undefined){
-    return <div> Return </div>
+    return <div> Loading ... </div>
   } else{
       var list = answers.map((answer)=> {
-        return ( <label>
-                    <input type="radio" value="option-1" name="poll-buttons"
+        return ( <label key={answer.key}>
+                    <input type="radio" value={answer.key} name="poll-buttons"
                     onChange={this.handleRadioChange}/>{answer.answer}
                  </label>)
      })
