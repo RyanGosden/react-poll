@@ -6,7 +6,6 @@ import PollResultsInformation from './poll.results.information';
 
 import styles from './poll.css';
 
-
 function PollResults(props) {
 
   function handleButtonClick(){

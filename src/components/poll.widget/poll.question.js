@@ -64,7 +64,7 @@ renderQuestions(){
             {this.renderQuestions()}
             <button onClick={this.handleSubmit} className={styles.pollButton}>Vote</button>
           </form>
-          <GenericMessage messageType={"error"} message={"Error - please select a field"} messageSwitch={this.state.message.pollQuestion} />
+          <GenericMessage messageType={"error"} message={"Error - please select a an option"} messageSwitch={this.state.message.pollQuestion} />
           <GenericButton label="View Results" className={styles.pollGenericButton} handleButtonClick={this.handleButtonClick}/>
         </div>
   );

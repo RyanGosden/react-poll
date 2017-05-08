@@ -38,3 +38,12 @@ label{
   margin: 5px;
   font-style: italic;
 }
+
+.pollAnswerResults{
+  list-style-type:decimal;
+  padding:5px;
+}
+
+.pollAnswerResults li {
+  border-bottom: 1px solid #6b8491;
+}
