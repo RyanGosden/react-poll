@@ -20,20 +20,27 @@ import App from './components/App';
 import { AppContainer } from 'react-hot-loader';
 
 
+//const container = document.getElementById('container');
 
-
-const container = document.getElementById('container');
-
-const render = (Component) => {
+//const render = (Component) => {
   ReactDOM.render(
-    <AppContainer>
-      <Component/>
-    </AppContainer>,
+  //  <AppContainer>
+    //  <Component/>
+    <App />,
+  //  </AppContainer>,
     document.getElementById('container')
   );
-};
+//};
+ReactDOM.render(
+//  <AppContainer>
+  //  <Component/>
+  <App />,
+//  </AppContainer>,
+  document.getElementById('container2')
+);
 
-render(App);
+//render(App);
+//
 
 
 
@@ -45,8 +52,8 @@ FastClick.attach(document.body);
 
 // Enable Hot Module Replacement (HMR)
 // Hot Module Replacement API
-if (module.hot) {
-  module.hot.accept('./components/App', () => {
-    render(App)
-  });
-}
+// if (module.hot) {
+//   module.hot.accept('./components/App', () => {
+//     render(App)
+//   });
+// }
