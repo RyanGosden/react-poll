@@ -15,32 +15,24 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import FastClick from 'fastclick';
 
-import App from './components/App';
-
 import { AppContainer } from 'react-hot-loader';
 
 
-//const container = document.getElementById('container');
 
-//const render = (Component) => {
+ import PollWidget from './components/poll.widget/poll.widget';
+ import NotificationWidget from './components/notification.widget/notification.widget';
+
+
+
   ReactDOM.render(
-  //  <AppContainer>
-    //  <Component/>
-    <App />,
-  //  </AppContainer>,
+    <PollWidget/>,
     document.getElementById('container')
   );
-//};
-ReactDOM.render(
-//  <AppContainer>
-  //  <Component/>
-  <App />,
-//  </AppContainer>,
-  document.getElementById('container2')
-);
+  ReactDOM.render(
+    <NotificationWidget/>,
+    document.getElementById('container2')
+  );
 
-//render(App);
-//
 
 
 

@@ -1,0 +1,49 @@
+:root {
+  --color: #607d8b;
+}
+
+.pollQuestion{
+  text-align: center;
+  padding:5px;
+  margin: 0 auto;
+}
+
+.pollButton {
+  display:block;
+  padding:5px;
+  margin: 10px auto;
+  width:200px;
+  background-color: #000;
+  color:#fff;
+  border: 0;
+}
+
+label{
+  display:block;
+  clear:both;
+  padding-left:10px;
+}
+
+.pollPiechart {
+  width:150px;
+  margin: 0 auto;
+}
+
+
+.pollGenericButton{
+  composes: genericButton from '../generic/button/generic.button.css';
+  position: absolute;
+  bottom:0;
+  right:0;
+  margin: 5px;
+  font-style: italic;
+}
+
+.pollAnswerResults{
+  list-style-type:decimal;
+  padding:5px;
+}
+
+.pollAnswerResults li {
+  border-bottom: 1px solid #6b8491;
+}
